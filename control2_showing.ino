@@ -9,16 +9,16 @@ int numeroPregunta=0;
 
 void setup() {
   Serial.begin(115200);
-  pinMode(btn_S,INPUT);
-  pinMode(btn_CS,INPUT);
-  pinMode(btn_AV,INPUT);
-  pinMode(btn_CN,INPUT);
-  pinMode(btn_N,INPUT);
-  pinMode(btn_SI,INPUT);
-  pinMode(btn_NO,INPUT);
+  pinMode(btn_S,INPUT_PULLUP); //INPUT_PULLUP nos permite cambiar la lógica del botón y eliminar el resistor en el alambrado
+  pinMode(btn_CS,INPUT_PULLUP);
+  pinMode(btn_AV,INPUT_PULLUP);
+  pinMode(btn_CN,INPUT_PULLUP);
+  pinMode(btn_N,INPUT_PULLUP);
+  pinMode(btn_SI,INPUT_PULLUP);
+  pinMode(btn_NO,INPUT_PULLUP);
   pinMode(leftLed,OUTPUT);
   pinMode(rightLed,OUTPUT);
-  pinMode(btnRetorno,INPUT);
+  pinMode(btnRetorno,INPUT_PULLUP);
 }
 
 void loop() {
@@ -43,6 +43,7 @@ void loop() {
   preguntar();
   delay(500);
 }
+
 
 int siguientePregunta(int valor){
   int suma = 0;
